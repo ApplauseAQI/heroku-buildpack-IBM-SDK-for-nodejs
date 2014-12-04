@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-set -e            			# fail fast
-set -o pipefail   			# don't ignore exit codes when piping output
-# set -x          			# enable debugging
-export NPM_CONFIG_OPTIONAL=false 	# don't install optional dependencies
+set -e           # fail fast
+set -o pipefail  # don't ignore exit codes when piping output
+# set -x         # enable debugging
 
 # Configure directories
 build_dir=$1
@@ -67,7 +66,7 @@ fi
 
   status "Installing dependencies"
   # Make npm output to STDOUT instead of its default STDERR
-  npm install --userconfig $build_dir/.npmrc --production 2>&1 | indent
+  npm install --userconfig $build_dir/.npmrc --production --no-optional 2>&1 | indent
 )
 
 # Persist goodies like node-version in the slug
