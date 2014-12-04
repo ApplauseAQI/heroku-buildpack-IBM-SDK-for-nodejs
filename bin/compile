@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-set -e            # fail fast
-set -o pipefail   # don't ignore exit codes when piping output
-# set -x          # enable debugging
+set -e            			# fail fast
+set -o pipefail   			# don't ignore exit codes when piping output
+# set -x          			# enable debugging
+export NPM_CONFIG_OPTIONAL=false 	# don't install optional dependencies
 
 # Configure directories
 build_dir=$1
@@ -63,9 +64,6 @@ fi
     status "Exporting config vars to environment"
     export_env_dir $env_dir
   fi
-
-  # Don't install optional dependencies
-  export NPM_CONFIG_OPTIONAL=false
 
   status "Installing dependencies"
   # Make npm output to STDOUT instead of its default STDERR
