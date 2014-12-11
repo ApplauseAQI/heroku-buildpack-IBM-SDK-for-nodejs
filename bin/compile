@@ -64,6 +64,7 @@ fi
     export_env_dir $env_dir
   fi
 
+  PATH=$build_dir/vendor/node/bin:$PATH
   status "Installing dependencies"
   # Make npm output to STDOUT instead of its default STDERR
   npm install --no-optional --userconfig $build_dir/.npmrc --production 2>&1 | indent
