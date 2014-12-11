@@ -34,6 +34,9 @@ mv $build_dir/node-v$node_version-linux-x64 $build_dir/vendor/node
 chmod +x $build_dir/vendor/node/bin/*
 PATH=$build_dir/vendor/node/bin:$PATH
 
+ln -s $build_dir/vendor/node/bin/node /usr/local/node
+ln -s $build_dir/vendor/node/bin/npm /usr/local/npm
+
 # Run subsequent node/npm commands from the build path
 cd $build_dir
 
@@ -64,7 +67,6 @@ fi
     export_env_dir $env_dir
   fi
 
-  PATH=$build_dir/vendor/node/bin:$PATH
   status "Installing dependencies"
   # Make npm output to STDOUT instead of its default STDERR
   npm install --no-optional --userconfig $build_dir/.npmrc --production 2>&1 | indent
