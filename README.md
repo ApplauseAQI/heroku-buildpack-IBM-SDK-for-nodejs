@@ -1,4 +1,4 @@
-Heroku Buildpack for Node.js
+Heroku Buildpack for IBM SDK for Node.js
 ============================
 
 This is the [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) for IBM SDK for Node.js applications. 
